@@ -24,7 +24,7 @@ public class Goal implements Comparable<Goal> {
 	private Priority priority;
 	
 	public enum Priority {
-		Low("low", 1), Medium("medium", 2), High("high", 3), Critical("critical", 4);
+		Low("Low", 1), Medium("Medium", 2), High("High", 3), Critical("Critical", 4);
 		
 		private int value;
 		private String name;
@@ -32,6 +32,11 @@ public class Goal implements Comparable<Goal> {
 		Priority(String name, int value){
 			this.name = name;
 			this.value = value;
+		}
+		
+		@Override
+		public String toString() {
+			return name;
 		}
 	}
 
@@ -195,18 +200,6 @@ public class Goal implements Comparable<Goal> {
 			throw new Exception("Week Value Error");
 		}
 	}
-
-	/*public String getPriority() {
-		return priority.name;
-	}
-
-	public void setPriority(int priority) throws Exception {
-		if (priority > 0 && priority < 5) {
-			this.priority.value = priority;
-		} else {
-			throw new Exception("Priority Value Error");
-		}
-	}*/
 
 	public Priority getPriority() {
 		return priority;

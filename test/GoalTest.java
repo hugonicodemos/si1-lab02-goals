@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -112,7 +113,10 @@ public class GoalTest {
 		}
 		
 		assertEquals(goal.totalOfGoals(), 10);
-		
+		List<Priority> al = new ArrayList<Priority>();
+		for(Priority values : goal.getPriority().values()) {
+			System.out.println(values);
+		}
 	}
 	
 	
