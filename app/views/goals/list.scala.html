@@ -1,0 +1,54 @@
+@(message : String, goals : Goal)
+
+@main("Welcome to Play") {
+  
+  <div class="container">
+    <div>
+        @for(weeks <- goals.getWeekNumber()) {
+          <table width="80%" cellspacing="0" cellpadding="2" border="1">
+          <h3>WEEK @weeks</h3>
+          <thead>
+            <tr>
+              <td>Description</td>
+              <td width="150">Priority</td>
+              <td width="150">Options</td>
+            </tr>
+          </thead>
+        	
+          <tbody>
+          @for(goal <- goals.getAllGoals()) {
+         	  @if(goal.getWeek() == weeks) {
+                <tr>
+                  @if(goal.isDone()) {
+                    <td bgcolor="green">@goal.getDescription()</td>
+                  } else {
+                    <td>@goal.getDescription()</td>
+                  }
+                  <td>@goal.getPriority()</td>
+                  <td>
+                    <a href="@routes.GoalsApp.done(goal.getDescription)" id="done">Done</a> &nbsp &nbsp - &nbsp &nbsp 
+                    <a href="@routes.GoalsApp.delete(goal.getDescription())">Delete</a>
+                  </td>
+                </tr>
+              }
+           }
+           <tr>
+              <td>
+                Total Goals: @goals.totalOfGoalsByWeek(weeks)    &nbsp &nbsp - &nbsp &nbsp
+                Total Done: @goals.totalOfGoalsDoneByWeek(weeks) &nbsp &nbsp - &nbsp &nbsp
+                Total Not Done: @goals.totalOfGoalsNotDoneByWeek(weeks)
+             </td><td></td><td></td>
+          </tr><br/>
+          </tbody>
+        }
+      
+    </table><br/>
+    
+    <button type="button" onclick="window.location = '@routes.GoalsApp.create '">New Goal</button>&nbsp;
+      
+    </div>
+  </div>
+  
+<body>	
+
+}

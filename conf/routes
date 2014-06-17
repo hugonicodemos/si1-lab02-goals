@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET     /goals                      controllers.GoalsApp.list()
+GET     /goals/new                  controllers.GoalsApp.create()
+GET		/goals/:goalDesc/delete     controllers.GoalsApp.delete(goalDesc: String)
+GET     /goals/:goalDesc/done       controllers.GoalsApp.done(goalDesc: String)
+POST    /goals/save                 controllers.GoalsApp.save()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /webjars/*file              controllers.WebJarAssets.at(file)

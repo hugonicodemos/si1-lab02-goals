@@ -1,0 +1,16 @@
+@(goalForm: play.data.Form[models.Goal])
+
+@import helper._
+
+@main("Cadastro de Cliente") {
+
+  	@helper.form(action = routes.GoalsApp.save()) {
+  	
+        @helper.inputText(goalForm("Description"), '_label -> "Description:", 'size -> 100)
+        @helper.inputText(goalForm("Week"), '_label -> "Week:", 'size -> 100)
+        @helper.inputText(goalForm("Priority"), '_label -> "Priority:", 'size -> 100)
+        <button type="submit">Create</button>
+        
+   }
+
+}
