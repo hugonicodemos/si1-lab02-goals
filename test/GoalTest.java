@@ -113,10 +113,6 @@ public class GoalTest {
 		}
 		
 		assertEquals(goal.totalOfGoals(), 10);
-		List<Priority> al = new ArrayList<Priority>();
-		for(Priority values : goal.getPriority().values()) {
-			System.out.println(values);
-		}
 	}
 	
 	
